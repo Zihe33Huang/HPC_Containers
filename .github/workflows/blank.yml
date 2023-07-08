@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: SSH and create a file
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HPC_SSH_HOST }}
+        username: ubuntu
+        key: ${{ secrets.HPC_SSH_PRIVATE_KEY }}
+        script: touch test.txt
