@@ -15,6 +15,8 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HPC_SSH_HOST }}
-        username: ubuntu
+        username: s2316443
         key: ${{ secrets.HPC_SSH_PRIVATE_KEY }}
+        passphrase: q980330
         script: touch test.txt
+        password: huangzihe980330
